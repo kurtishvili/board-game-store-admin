@@ -1,0 +1,5 @@
+<div class="transaction-wrapper">
+    <app-transaction-filter (onFilter)="onFilter($event)"></app-transaction-filter>
+    <app-transaction-list [paginator]="paginator" [transactions]="transactions" (onPaginate)="onPaginate()">
+    </app-transaction-list>
+</div>

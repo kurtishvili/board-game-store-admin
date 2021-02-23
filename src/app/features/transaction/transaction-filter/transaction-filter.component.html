@@ -1,0 +1,54 @@
+<div class="container">
+
+    <div class="filter-wrapper">
+        <p-dropdown name="transactionTypes" [options]="transactionTypes" [(ngModel)]="filter.typeId"
+            placeholder="Transaction Type" [showClear]="true">
+        </p-dropdown>
+    </div>
+    <div class="filter-wrapper">
+        <span class="p-float-label">
+            <input name="pinCode" id="pinCode" type="number" pInputText [(ngModel)]="filter.pinCode">
+            <label for="pinCode">Pin Code</label>
+        </span>
+    </div>
+    <div class="filter-wrapper">
+        <div class="p-field p-col-12 p-md-4">
+            <label for="icon"></label>
+            <p-calendar [(ngModel)]="filter.dateFrom" [showIcon]="true" inputId="icon"
+                placeholder="Transaction Date From"></p-calendar>
+        </div>
+    </div>
+
+    <div class="filter-wrapper">
+        <div class="p-field p-col-12 p-md-4">
+            <label for="icon"></label>
+            <p-calendar [(ngModel)]="filter.dateTo" [showIcon]="true" inputId="icon" placeholder="Transaction Date To">
+            </p-calendar>
+        </div>
+    </div>
+
+    <div class="filter-wrapper">
+        <span class="p-float-label">
+            <input name="amountFrom" id="amountFrom" type="number" pInputText [(ngModel)]="filter.amountFrom">
+            <label for="amountFrom">Amount From</label>
+        </span>
+    </div>
+
+    <div class="filter-wrapper">
+        <span class="p-float-label">
+            <input name="amountTo" id="amountTo" type="number" pInputText [(ngModel)]="filter.amountTo">
+            <label for="amountTo">Amount to</label>
+        </span>
+    </div>
+
+
+    <div class="btn-wrapper">
+        <button pButton pRipple type="submit" label="Search" icon="pi pi-search" name="search"
+            (click)="searchClick()"></button>
+    </div>
+
+    <div class="btn-wrapper">
+        <button pButton pRipple type="button" label="Clear" icon="pi pi-times" (click)="clearClick()"
+            name="clear"></button>
+    </div>
+</div>

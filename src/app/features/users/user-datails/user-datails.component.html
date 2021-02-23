@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="img-wrapper">
+        <img [src]="userDetails.avatarUrl " *ngIf="userDetails?.avatarUrl != null">
+    </div>
+    <div class="details-wrapper">
+        <div>
+            <span>Pin Code: </span>
+            <span> {{userDetails?.pinCode}} </span>
+        </div>
+        <div>
+            <span>Email: {{userDetails?.email}} </span>
+        </div>
+        <div>
+            <span>Firstname: {{userDetails?.firstname}} </span>
+        </div>
+        <div>
+            <span>Lastname: {{userDetails?.lastname}} </span>
+        </div>
+        <div>
+            <button *ngIf="!isBlocked" pButton pRipple type="button" label="Block User" class="p-button-success"
+                icon="pi pi-replay" (click)="blockUserClick()"></button>
+            <button *ngIf="isBlocked" pButton pRipple type="button" label="Unblock User"
+                class="p-button-raised p-button-danger" icon="pi pi-replay" (click)="unblockUserClick()"></button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="title-wrapper">
+    <span>Orders</span>
+    <span>Transactions</span>
+</div>
+
+<div class="content-wrapper">
+
+    <div class="table-wrapper">
+
+        <div class="orders">
+
+            <p-table [value]="orders">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Order #</th>
+                        <th>Order Date</th>
+                        <th>Total Amount</th>
+                        <th class="icon-column"> </th>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-order>
+                    <tr>
+                        <td>{{order.id}}</td>
+                        <td>{{order.createDate | date: 'dd/MM/yyyy' }}</td>
+                        <td>{{order.totalAmount | currency: 'USD'}}</td>
+                        <td class="icon-wrapper"> <span class="material-icons">
+                                visibility
+                            </span> </td>
+                    </tr>
+
+                </ng-template>
+            </p-table>
+        </div>
+
+        <div class="order-paginator-wrapper">
+            <p-paginator [rows]="paginatorOrder.pageSize" [totalRecords]="paginatorOrder.totalRecords"
+                [rowsPerPageOptions]="paginatorOrder.options" (onPageChange)="onPaginateOrders($event)"></p-paginator>
+        </div>
+        
+    </div>
+
+    <div class="transaction-wrapper">
+
+        <div class="transaction-paginator-wrapper">
+            <app-transaction-list [userId]="currentUserId" [transactions]="transactions"
+                [paginator]="paginatorTransaction" (onPaginate)="onPaginateTransactions()"></app-transaction-list>
+        </div>
+    </div>
+
+</div>

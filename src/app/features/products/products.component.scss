@@ -1,0 +1,47 @@
+.filter {
+    padding: 10px 5px;
+    .filter-wrapper {
+        display: inline-block;
+        margin: 13px 5px;
+        width: 210px;
+        vertical-align: middle;
+        .input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+    .btn-wrapper {
+        margin: 3px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.add-btn {
+    padding: 0px 7px 0px;
+}
+
+.table-wrapper {
+    height: calc(100vh - 320px);
+    overflow: auto;
+    margin-top: 5px;
+    th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        &.attachment-column,
+        &.number-column,
+        &.icon-column {
+            width: 120px;
+        }
+    }
+    .primary-attachment {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .icon-wrapper {
+        button:not(:first-child) {
+            margin-left: 5px;
+        }
+    }
+}

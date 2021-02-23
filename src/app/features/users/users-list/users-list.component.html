@@ -1,0 +1,33 @@
+<div class="table-wrapper">
+
+    <p-table [value]="users">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Pin Code</th>
+                <th>Email</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th class="icon-column"> </th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{user.pinCode}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.firstname}}</td>
+                <td>{{user.lastname}}</td>
+                <td class="icon-wrapper" [routerLink]="['details', user.id]"> <span class="material-icons">
+                        visibility
+                    </span> </td>
+            </tr>
+
+        </ng-template>
+    </p-table>
+
+</div>
+
+<div class="paginator-wrapper">
+<p-paginator [rows]="paginator.pageSize" [totalRecords]="paginator.totalRecords"
+    [rowsPerPageOptions]="paginator.options" (onPageChange)="onPaginate($event)"></p-paginator>
+</div>

@@ -1,0 +1,29 @@
+.table-wrapper {
+    margin-top: 10px;
+    th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    .icon-column {
+        width: 80px;
+    }
+    td {
+        width: 300px;
+    }
+    .icon-wrapper {
+        width: 50px;
+        cursor: pointer;
+        outline: none;
+        .material-icons {
+            color: blue;
+            font-size: 30px;
+            text-align: left;
+        }
+    }
+}
+.paginator-wrapper {
+    position: fixed;
+    width: 100%;
+    bottom: -8px;
+}

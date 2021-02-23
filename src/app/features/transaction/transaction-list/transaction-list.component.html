@@ -1,0 +1,37 @@
+<div class="table-wrapper">
+
+    <div class="orders">
+
+        <p-table [value]="transactions">
+            <ng-template pTemplate="header">
+
+                <tr>
+                    <th class="transaction-type-marker-column"></th>
+                    <th>Transaction Type</th>
+                    <th *ngIf="!userId">Pin Code </th>
+                    <th>Transaction Date</th>
+                    <th>Amount</th>
+                </tr>
+
+            </ng-template>
+            <ng-template pTemplate="body" let-transaction>
+                <tr>
+                    <td>
+                        <app-transaction-type-marker [transactionType]="transaction.typeId">
+                        </app-transaction-type-marker>
+                    </td>
+                    <td class="transaction-type-column">{{transaction.type}}</td>
+                    <td *ngIf="!userId">{{transaction.pinCode}}</td>
+                    <td>{{transaction.createDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+                    <td>{{transaction.amount | currency: 'USD'}}</td>
+                </tr>
+
+            </ng-template>
+        </p-table>
+
+    </div>
+
+
+    <p-paginator [rows]="paginator.pageSize" [totalRecords]="paginator.totalRecords"
+        [rowsPerPageOptions]="paginator.options" (onPageChange)="onPaginate($event)"></p-paginator>
+</div>
